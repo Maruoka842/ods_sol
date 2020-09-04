@@ -1,0 +1,11 @@
+\subsection{}
+$\rm{size}(u) \leq (2/3) \rm{size}(u.parent)$
+(★)より, 根の高さ$h$と頂点数$n$は$(3/2)^{h} \leq n$の関係にあるから, $h \leq \log_{3/2} n$となる.
+木の高さが$O(\log n)$だからaddとremoveは$O(\log n)$で実行できる.
+
+
+addまたはremoveを実行後, ★が満たされていない頂点$v$を根とする部分木を完全二分木に構成する計算量を解析する.
+$\rm{size}(v.left) > (2/3) \rm{size}(v)$と仮定しても一般性を失わない.
+$$\rm{size}(v.left) - \rm{size}(v.right) = 2\rm{size}(v.left) - \rm{size}(v) + 1 > (1/3) \rm{size}(v)$$
+★の直後$\rm{size} (v.left) -\rm{size} (v.right) \leq 1$だからその後$(1/3) \rm{size}(v)$ 回以上addまたはremoveが行われている.
+よってrebuildの計算量は均し$O(\log n)$.
